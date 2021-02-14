@@ -1,1 +1,4 @@
-@import "./SearchBar";
+#root {
+  @import "components/SearchBar";
+  @import "./components/VideoItem";
+}

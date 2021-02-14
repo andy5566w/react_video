@@ -13,9 +13,15 @@ class VideosItems extends Component<VideosItemsProps, Object> {
   render() {
     const { snippet } = this.props.video
     return (
-      <div>
-        <h1>{snippet.title}</h1>
-        <img src={snippet.thumbnails.medium.url} alt={snippet.description} />
+      <div className="item video-item">
+        <img
+          className="ui image"
+          src={snippet.thumbnails.medium.url}
+          alt={snippet.description}
+        />
+        <div className="content">
+          <div className="header">{snippet.title}</div>
+        </div>
       </div>
     )
   }

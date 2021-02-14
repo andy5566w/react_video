@@ -21,7 +21,7 @@ class VideoList extends Component<VideosListProps, Object> {
     const renderedLists = videos.map((video: Video) => (
       <VideosItems key={video.id.videoId} video={video} />
     ))
-    return <div>{renderedLists}</div>
+    return <div className="ui relaxed divided list">{renderedLists}</div>
   }
 }
 
