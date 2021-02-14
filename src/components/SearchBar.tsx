@@ -4,7 +4,9 @@ type SearchBarState = {
   term: string
 }
 
-type SearchBarProps = {}
+type SearchBarProps = {
+  handleTermSubmit: Function
+}
 
 class SearchBar extends Component<SearchBarProps, SearchBarState> {
   constructor(props: SearchBarProps) {
@@ -16,11 +18,12 @@ class SearchBar extends Component<SearchBarProps, SearchBarState> {
 
   handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     this.setState({ term: event.currentTarget.value })
-    console.log(process.env.API_YOUTUBE_KEY)
   }
 
   handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+
+    this.props.handleTermSubmit(this.state.term)
   }
 
   render() {
