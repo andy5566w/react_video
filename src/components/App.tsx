@@ -5,6 +5,7 @@ import youtube from '../api/youtube'
 import VideoList from './video/VideoList'
 import SearchBar from './SearchBar'
 import { Video } from '../type/common'
+import VideoDetail from './video/VideoDetail'
 
 type AppState = {
   videos: Array<object>
@@ -25,7 +26,6 @@ class App extends Component<Object, AppState> {
   }
 
   handleVideoSelect = (video: Video) => {
-    console.log('video', video)
     this.setState({ selectedVideo: video })
   }
 
@@ -37,17 +37,40 @@ class App extends Component<Object, AppState> {
         q: term,
       },
     })
-    this.setState({ videos: items })
+    this.setState({
+      videos: items,
+      selectedVideo: {
+        id: { videoId: '' },
+        snippet: {
+          description: '',
+          title: '',
+          thumbnails: { medium: { url: '' } },
+        },
+      },
+    })
+  }
+
+  componentDidMount() {
+    this.handleTermSubmit('reactjs')
   }
 
   render() {
     return (
       <div className="ui container">
         <SearchBar handleTermSubmit={this.handleTermSubmit} />
-        <VideoList
-          videos={this.state.videos}
-          handleVideoSelect={this.handleVideoSelect}
-        />
+        <div className="ui grid">
+          <div className="ui row">
+            <div className="eleven wide column">
+              <VideoDetail video={this.state.selectedVideo} />
+            </div>
+            <div className="five wide column">
+              <VideoList
+                videos={this.state.videos}
+                handleVideoSelect={this.handleVideoSelect}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
