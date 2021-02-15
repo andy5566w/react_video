@@ -60,10 +60,10 @@ class App extends Component<Object, AppState> {
         <SearchBar handleTermSubmit={this.handleTermSubmit} />
         <div className="ui grid">
           <div className="ui row">
-            <div className="eleven wide column">
+            <div className="eleven container__detail column">
               <VideoDetail video={this.state.selectedVideo} />
             </div>
-            <div className="five wide column">
+            <div className="five container__lists column">
               <VideoList
                 videos={this.state.videos}
                 handleVideoSelect={this.handleVideoSelect}

@@ -1,0 +1,15 @@
+.container{
+  &__detail{
+    width: 68.75%;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+  }
+
+  &__lists{
+    width: 31.25%;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+  }
+}
