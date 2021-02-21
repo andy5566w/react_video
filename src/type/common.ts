@@ -6,3 +6,8 @@ export type Video = {
     thumbnails: { medium: { url: string } }
   }
 }
+
+export type Action = {
+  type: string
+  payload: Array<Object>
+}
