@@ -12,7 +12,6 @@ type VideosListProps = {
 class VideoList extends Component<VideosListProps, Object> {
   render() {
     const { video, handleVideoSelect } = this.props
-    console.log('video', video)
     const renderedLists = video.map((video: Video) => (
       <VideosItems
         key={video.id.videoId}

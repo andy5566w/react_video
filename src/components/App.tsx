@@ -33,29 +33,8 @@ class App extends Component<AppProps, AppState> {
     this.setState({ selectedVideo: video })
   }
 
-  handleTermSubmit = async (term: string) => {
-    // const {
-    //   data: { items },
-    // } = await youtube.get('/search', {
-    //   params: {
-    //     q: term,
-    //   },
-    // })
-    // this.setState({
-    //   videos: items,
-    //   selectedVideo: {
-    //     id: { videoId: '' },
-    //     snippet: {
-    //       description: '',
-    //       title: '',
-    //       thumbnails: { medium: { url: '' } },
-    //     },
-    //   },
-    // })
-  }
-
   async componentDidMount() {
-    await this.handleTermSubmit('reactjs')
+    await this.props.fetchVideo('reactjs')
   }
 
   render() {

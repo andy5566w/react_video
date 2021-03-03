@@ -12,7 +12,7 @@ class SearchBar extends Component<SearchBarProps, SearchBarState> {
   constructor(props: SearchBarProps) {
     super(props)
     this.state = {
-      term: '',
+      term: 'react',
     }
   }
 
